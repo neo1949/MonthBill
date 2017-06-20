@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -16,6 +17,7 @@ import android.view.View;
  */
 
 public class MonthBillView extends View {
+    private static final String TAG = "MonthBillView";
 
     private int[] mMonthArray;
     private double[] mBillValues;
@@ -139,6 +141,28 @@ public class MonthBillView extends View {
 
         // 避免只有一个月消费金额或者最低最高消费金额相同造成mBillRange当除数为0的情况
         mBillRange = (mBillRange == 0 ? 1 : mBillRange);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        Paint.FontMetrics fontMetrics = mTextPaint.getFontMetrics();
+        float fontHeight = fontMetrics.descent - fontMetrics.ascent;
+
+        mWidth = widthSize;
+
+        if (heightMode == MeasureSpec.EXACTLY) {
+            mHeight = heightSize;
+        } else {
+            mHeight = (int) (4 * fontHeight + 4 * fontHeight + getPaddingTop() + getPaddingBottom());
+        }
+
+        setMeasuredDimension(mWidth, mHeight);
     }
 
     @Override

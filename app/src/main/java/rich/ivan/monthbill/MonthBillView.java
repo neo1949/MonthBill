@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 /**
@@ -16,6 +17,7 @@ import android.view.View;
  */
 
 public class MonthBillView extends View {
+    private static final String TAG = "MonthBillView";
 
     private int[] mMonthArray;
     private double[] mBillValues;

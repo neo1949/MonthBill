@@ -5,3 +5,14 @@
 折线效果图
 
 <img src="https://github.com/IvanRich/MonthBill/blob/master/image/S70615-172233.jpg" width="50%"/>
+
+## 切换到 java 代码
+如需要查看 java 代码，首先下载仓库代码：
+```
+git clone https://github.com/neo1949/MonthBill.git
+```
+
+然后进入工程目录，执行以下命令：
+```
+git checkout v1.0.0
+```

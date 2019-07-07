@@ -1,3 +1,5 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">MonthBill</string>
+    <string name="month_bill_title">月消费折线图</string>
+    <string name="month_index"><xliff:g id="month_index">%1d</xliff:g>月</string>
 </resources>
